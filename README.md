@@ -2,7 +2,7 @@
 
 **A LiDAR odometry framework that can easily test the ground-segmentation algorithms.**
 
-The page for ***PaGO-LOAM: Robust Ground-Optimized LiDAR Odometry***, a LiDAR odometry framework based on *LeGO-LOAM*, in which it is easy and straightforward to test whether ground segmentation algorithms help extract features and improve SLAM performance. By leveraging the SOTA ground segmentation method $Patchwork$, the system takes in the raw point cloud and ground point cloud for estimating the odometry. 
+The page for ***PaGO-LOAM: Robust Ground-Optimized LiDAR Odometry***, a LiDAR odometry framework based on *LeGO-LOAM*, in which it is easy and straightforward to test whether ground segmentation algorithms help extract features and improve SLAM performance. By leveraging the SOTA ground segmentation method ***Patchwork***, the system takes in the raw point cloud and ground point cloud for estimating the odometry. 
 
 ![overview](PaGO-LOAM/PaGO-LOAM/launch/overview.jpeg)
 
