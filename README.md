@@ -11,23 +11,23 @@ The page for ***PaGO-LOAM: Robust Ground-Optimized LiDAR Odometry***, a LiDAR od
 - [ROS](http://wiki.ros.org/ROS/Installation) (tested with melodic)
 - [gtsam](https://github.com/borglab/gtsam/releases) (Georgia Tech Smoothing and Mapping library, 4.0.0-alpha2)
     
-    ```cpp
-    wget -O ~/Downloads/gtsam.zip https://github.com/borglab/gtsam/archive/4.0.0-alpha2.zip
-    cd ~/Downloads/ && unzip gtsam.zip -d ~/Downloads/
-    cd ~/Downloads/gtsam-4.0.0-alpha2/
-    mkdir build && cd build
-    cmake ..
-    sudo make install
-    ```
+```cpp
+wget -O ~/Downloads/gtsam.zip https://github.com/borglab/gtsam/archive/4.0.0-alpha2.zip
+cd ~/Downloads/ && unzip gtsam.zip -d ~/Downloads/
+cd ~/Downloads/gtsam-4.0.0-alpha2/
+mkdir build && cd build
+cmake ..
+sudo make install
+```
     
 
 - If you want to test the ground segmentation method [Patchwork](https://github.com/LimHyungTae/patchwork) like us,
-    
-    ```
-    sudo apt-get install ros-melodic-jsk-recognition
-    sudo apt-get install ros-melodic-jsk-common-msgs
-    sudo apt-get install ros-melodic-jsk-rviz-plugins
-    ```
+
+```
+sudo apt-get install ros-melodic-jsk-recognition
+sudo apt-get install ros-melodic-jsk-common-msgs
+sudo apt-get install ros-melodic-jsk-rviz-plugins
+```
     
 
 ## Build
@@ -84,7 +84,7 @@ rosbag play /${Your dataset}/${kitti_bagfile}.bag --clock
 
 ## Odometry Estimation
 
-Using [evo package](https://github.com/MichaelGrupp/evo), estimate the pose errors e.g
+Using [evo package](https://github.com/MichaelGrupp/evo), you could estimate the pose errors e.g:
 
 1. LeGO-LOAM fundamentally doesn’t give the first 2\~3 poses because it doesn’t estimate the odometry poses when initializes. **So please compare the # of difference between ground-truth and estimated odometry, and remove the first 2~3 poses of ground-truth.**
 
