@@ -69,7 +69,7 @@ cd .. && catkin build pago_loam
 
 1. Download [KITTI Odometry](http://www.cvlibs.net/datasets/kitti/eval_odometry.php) dataset
 2. Convert Lidar bin files to rosbag files using ****[lidar2rosbag_KITTI](https://github.com/AbnerCSZ/lidar2rosbag_KITTI)**** (If you are in urobot students, just use pre-made bagfiles!)
-3. Run the ground segmentation algorithm. (e.g. $Patchwork$)
+3. Run the ground segmentation algorithm. (e.g. *Patchwork*)
 
 ```cpp
 roslaunch patchwork pub_for_legoloam.launch
