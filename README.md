@@ -34,26 +34,26 @@ sudo apt-get install ros-melodic-jsk-rviz-plugins
 
 1. In utility.h, there are 5 parameters you could set
     
-    ```cpp
-    extern const string pointCloudTopic = "/benchmark/ground_estimate";
-    extern const bool alterGround = true;
-    extern const bool loopClosureEnableFlag = false;
-    std::string RESULT_PATH ="/data/bagfiles/KITTI_BAG/pago_pose_result.txt";
-    std::string TIME_PATH ="/data/bagfiles/KITTI_BAG/pago_pose_time.txt";
-    ```
+```cpp
+extern const string pointCloudTopic = "/benchmark/ground_estimate";
+extern const bool alterGround = true;
+extern const bool loopClosureEnableFlag = false;
+std::string RESULT_PATH ="/data/bagfiles/KITTI_BAG/pago_pose_result.txt";
+std::string TIME_PATH ="/data/bagfiles/KITTI_BAG/pago_pose_time.txt";
+```
     
     - pointCloudTopic should have the format as (Refer to cloud_msgs/ground_estimate.msg):
         
-        ```cpp
-        std_msgs/Header header
-        sensor_msgs/PointCloud2 curr
-        sensor_msgs/PointCloud2 ground 
-        ```
+    ```cpp
+    std_msgs/Header header
+    sensor_msgs/PointCloud2 curr
+    sensor_msgs/PointCloud2 ground 
+    ```
         
-        ‘*curr*‘ for raw point cloud, ‘*ground*‘ for ground segmented point cloud. 
+    ‘*curr*‘ for raw point cloud, ‘*ground*‘ for ground segmented point cloud. 
         
     - *alterGround* is for deciding whether to use another ground segmentation method such as ***Patchwork*** or one from baseline LeGO-LOAM.
-    - loopClosureEnableFlag for loop-closure.
+    - *loopClosureEnableFlag* for loop-closure.
     - *RESULT_PATH* and *TIME_PATH* for the odometry estimation result.
     
 2. Compile
@@ -61,7 +61,7 @@ sudo apt-get install ros-melodic-jsk-rviz-plugins
 ```cpp
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/src
-git clone https://github.com/url-kaist/PaGO-LOAM
+git clone https://github.com/url-kaist/AlterGround-LeGO-LOAM
 cd .. && catkin build pago_loam
 ```
 
@@ -86,7 +86,7 @@ rosbag play /${Your dataset}/${kitti_bagfile}.bag --clock
 
 Using [evo package](https://github.com/MichaelGrupp/evo), you could estimate the pose errors e.g:
 
-1. LeGO-LOAM fundamentally doesn’t give the first 2\~3 poses because it doesn’t estimate the odometry poses when initializes. **So please compare the # of difference between ground-truth and estimated odometry, and remove the first 2~3 poses of ground-truth.**
+1. *LeGO-LOAM* fundamentally doesn’t give the first 2\~3 poses because it doesn’t estimate the odometry poses when initializes. **So please compare the # of difference between ground-truth and estimated odometry, and remove the first 2~3 poses of ground-truth.**
 
 ```cpp
 evo_ape kitti KITTI_00_gt.txt pago_pose_result.txt -va --plot --plot_mode xz --save_results results/KITTI_pago.zip --align
