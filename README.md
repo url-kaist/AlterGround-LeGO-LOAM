@@ -42,19 +42,19 @@ std::string RESULT_PATH ="/data/bagfiles/KITTI_BAG/pago_pose_result.txt";
 std::string TIME_PATH ="/data/bagfiles/KITTI_BAG/pago_pose_time.txt";
 ```
 
-    - pointCloudTopic should have the format as (Refer to cloud_msgs/ground_estimate.msg):
+- pointCloudTopic should have the format as (Refer to cloud_msgs/ground_estimate.msg):
         
-    ```
-    std_msgs/Header header
-    sensor_msgs/PointCloud2 curr
-    sensor_msgs/PointCloud2 ground 
-    ```
+```
+std_msgs/Header header
+sensor_msgs/PointCloud2 curr
+sensor_msgs/PointCloud2 ground 
+```
         
-    ‘*curr*‘ for raw point cloud, ‘*ground*‘ for ground segmented point cloud. 
+‘*curr*‘ for raw point cloud, ‘*ground*‘ for ground segmented point cloud. 
         
-    - *alterGround* is for deciding whether to use another ground segmentation method such as ***Patchwork*** or one from baseline LeGO-LOAM.
-    - *loopClosureEnableFlag* for loop-closure.
-    - *RESULT_PATH* and *TIME_PATH* for the odometry estimation result.
+- *alterGround* is for deciding whether to use another ground segmentation method such as ***Patchwork*** or one from baseline LeGO-LOAM.
+- *loopClosureEnableFlag* for loop-closure.
+- *RESULT_PATH* and *TIME_PATH* for the odometry estimation result.
     
 2. Compile
 
