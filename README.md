@@ -34,17 +34,17 @@ sudo apt-get install ros-melodic-jsk-rviz-plugins
 
 1. In utility.h, there are 5 parameters you could set
     
-```cpp
+```
 extern const string pointCloudTopic = "/benchmark/ground_estimate";
 extern const bool alterGround = true;
 extern const bool loopClosureEnableFlag = false;
 std::string RESULT_PATH ="/data/bagfiles/KITTI_BAG/pago_pose_result.txt";
 std::string TIME_PATH ="/data/bagfiles/KITTI_BAG/pago_pose_time.txt";
 ```
-    
+
     - pointCloudTopic should have the format as (Refer to cloud_msgs/ground_estimate.msg):
         
-    ```cpp
+    ```
     std_msgs/Header header
     sensor_msgs/PointCloud2 curr
     sensor_msgs/PointCloud2 ground 
