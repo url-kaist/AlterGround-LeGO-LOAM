@@ -67,7 +67,8 @@ cd .. && catkin build pago_loam
 
 ## Warning
 
-**LiDAR points from KITTI dataset are de-skewed, so you should do de-skewing or restore/change the de-skewing/KITTI-adaptive code:**
+**LiDAR points from KITTI dataset are de-skewed, so you should do de-skewing first or restore/change the de-skewing/KITTI-adaptive code:**(These codes are changed for using KITTI dataset)    
+
 1. utility.h    
 ```cpp
 extern const string pointCloudTopic = "/kitti/velo/pointcloud"; <- you should check your own bag file topic
