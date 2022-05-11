@@ -65,6 +65,32 @@ git clone https://github.com/url-kaist/AlterGround-LeGO-LOAM
 cd .. && catkin build pago_loam
 ```
 
+## Warning
+
+**LiDAR points from KITTI dataset are de-skewed, so you should do de-skewing or restore/change the de-skewing/KITTI-adaptive code:**
+1. utility.h    
+```cpp
+extern const string pointCloudTopic = "/kitti/velo/pointcloud"; <- you should check your own bag file topic
+//param for vel-64
+extern const int N_SCAN = 64;
+extern const int Horizon_SCAN = 1800;
+extern const float ang_res_x = 0.2;
+extern const float ang_res_y = 0.427;
+extern const float ang_bottom = 24.9;
+extern const int groundScanInd = 50;
+```
+
+2. featureAssociation.cpp    
+```cpp
+float s 10 * (pi->intensity - int(pi->intensity)); -> float s = 1;
+
+// to delete all the code that corrects point cloud distortion
+TransformToEnd(&cornerPointsLessSharp->points[i], &cornerPointsLessSharp->points[i]); -> removed
+TransformToEnd(&surfPointsLessFlat->points[i], &surfPointsLessFlat->points[i]); -> removed
+```
+We refer to the modification here: https://github.com/Mitchell-Lee-93/kitti-lego-loam    
+
+
 ## KITTI Example
 
 1. Download [KITTI Odometry](http://www.cvlibs.net/datasets/kitti/eval_odometry.php) dataset
