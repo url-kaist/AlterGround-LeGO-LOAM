@@ -67,7 +67,7 @@ cd .. && catkin build pago_loam
 
 ## Warning
 
-**LiDAR points from KITTI dataset are de-skewed, so you should do de-skewing first or restore/change the de-skewing/KITTI-adaptive code:**(These codes are changed for using KITTI dataset)    
+**Our codes are modified to use LiDAR points from KITTI dataset that were de-skewed, so you should do de-skewing first or restore/change the de-skewing/KITTI-adaptive code to use other dataset**(i.e, codes are changed as follows)    
 
 1. utility.h    
 ```cpp
